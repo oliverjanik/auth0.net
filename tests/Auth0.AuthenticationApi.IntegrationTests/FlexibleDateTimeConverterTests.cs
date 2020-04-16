@@ -7,6 +7,11 @@ namespace Auth0.AuthenticationApi.IntegrationTests
 {
     public class FlexibleDateTimeConverterTests
     {
+        public FlexibleDateTimeConverterTests()
+        {
+            JsonConvert.DefaultSettings = () => new JsonSerializerSettings { DateParseHandling = DateParseHandling.None };
+        }
+
         [Fact]
         public void HandlesIsoStringDates()
         {
